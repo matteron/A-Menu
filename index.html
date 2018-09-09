@@ -11,7 +11,7 @@
         <div class="right-column">
           <div class="column-half">
               <div class="week-card">
-                <div class="day-text">Mon</div>
+                <div id="Monday-title" class="day-text">Mon</div>
                 <hr class="lunch-line"/>
                 <div class="lunch">
                   <div class="lunch-title">Lunch</div>
@@ -30,7 +30,7 @@
                 </div>
               </div>
               <div class="week-card">
-                <div class="day-text">Tue</div>
+                <div id="Tuesday-title" class="day-text">Tue</div>
                 <hr class="lunch-line"/>
                 <div class="lunch">
                   <div class="lunch-title">Lunch</div>
@@ -49,7 +49,7 @@
                 </div>
               </div>
               <div class="week-card">
-                <div class="day-text">Wed</div>
+                <div id="Wednesday-title" class="day-text">Wed</div>
                 <hr class="lunch-line"/>
                 <div class="lunch">
                   <div class="lunch-title">Lunch</div>
@@ -70,7 +70,7 @@
           </div>
           <div class="column-half">
               <div class="week-card">
-                <div class="day-text">Fri</div>
+                <div id="Friday-title" class="day-text">Fri</div>
                 <hr class="lunch-line"/>
                 <div class="lunch">
                   <div class="lunch-title">Lunch</div>
@@ -89,7 +89,7 @@
                 </div>
               </div>
               <div class="week-card">
-                <div class="day-text">Sat</div>
+                <div id="Saturday-title" class="day-text">Sat</div>
                 <hr class="lunch-line"/>
                 <div class="lunch">
                   <div class="lunch-title">Lunch</div>
@@ -108,7 +108,7 @@
                 </div>
               </div>
               <div class="week-card">
-                  <div class="day-text">Sun</div>
+                  <div id="Sunday-title" class="day-text">Sun</div>
                   <hr class="lunch-line"/>
                   <div class="lunch">
                     <div class="lunch-title">Lunch</div>
@@ -123,7 +123,7 @@
         </div>
         <div class="sunday-column">
             <div class="week-card">
-              <div class="day-text">Thu</div>
+              <div id="Thursday-title" class="day-text">Thu</div>
               <hr class="lunch-line"/>
               <div class="lunch">
                 <div class="lunch-title">Lunch</div>
@@ -143,11 +143,12 @@
             </div>
             <div class="button-div">
                 <input type="button" class="generate" value="Crea Menu" onclick="generate()"/>
+                <input type="button" class="generate" value="🇮🇹 / 🇬🇧" onclick="language()"/>
             </div>
         </div>
         <div class="ingredients-column">
           <div class="ingredients-card">
-            <div class="day-text">Ingredients</div>
+            <div id="ingredient-title" class="day-text">Ingredients</div>
             <hr/>
             <div id=ingredients class="ingredients">
               <p>test</p>

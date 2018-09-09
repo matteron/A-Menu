@@ -1,9 +1,38 @@
 const Menu = require('./logic/menu.js')
 let menu = new Menu()
+let english = false;
 
 function generate(){
     menu.generateWeek()
     populatePage(menu.current, menu.ingredients)
+}
+
+function language() {
+    let local = {
+        "Monday": (english ? "Mon" : "Lun"),
+        "Tuesday": (english ? "Tue" : "Mar"),
+        "Wednesday": (english ? "Wed" : "Mer"),
+        "Thursday": (english ? "Thu" : "Gio"),
+        "Friday": (english ? "Fri" : "Ven"),
+        "Saturday":(english ? "Sat" : "Sab"),
+        "Sunday": (english ? "Sun" : "Dom"),
+        "Lunch": (english ? "Lunch" : "Pranzo"),
+        "Dinner": (english ? "Dinner" : "Cena"),
+        "Ingredients": (english ? "Ingredients": "Ingredienti")
+    }
+    for(propertyName in menu.current){
+        document.getElementById(propertyName + '-title').innerText = local[propertyName]
+    }
+    let lunch = document.getElementsByClassName('lunch-title')
+    Array.prototype.forEach.call(lunch, function(el) { 
+        el.innerText = local["Lunch"]
+    });
+    let dinner = document.getElementsByClassName('dinner-title')
+    Array.prototype.forEach.call(dinner, function(el) { 
+        el.innerText = local["Dinner"]
+    });
+    document.getElementById("ingredient-title").innerText = local["Ingredients"]
+    english = !english
 }
 
 function lock(path){
