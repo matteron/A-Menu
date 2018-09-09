@@ -44,10 +44,32 @@ function language() {
 
 function openSettings(day){
     document.getElementById("modal-title").innerText = local(day);
+    document.getElementById("save-button").onclick = function () { saveSettings(day); };
+
+    let properties = []
+    for(property in menu.defaults[day]["Lunch1"]){
+        properties.push(property)
+    }
+    properties.some(function(property) {
+        document.getElementById(property + '-primo').checked = menu.defaults[day]["Lunch1"][property]
+        document.getElementById(property + '-secondo').checked = menu.defaults[day]["Lunch2"][property]
+        document.getElementById(property + '-cena').checked = menu.defaults[day]["Dinner"][property]
+        return property === "eggs"
+    })
     MicroModal.show('modal');
 }
 function saveSettings(day){
-
+    let properties = []
+    for(property in menu.defaults[day]["Lunch1"]){
+        properties.push(property)
+    }
+    properties.some(function(property) {
+        menu.defaults[day]["Lunch1"][property] = document.getElementById(property + '-primo').checked
+        menu.defaults[day]["Lunch2"][property] = document.getElementById(property + '-secondo').checked
+        menu.defaults[day]["Dinner"][property] = document.getElementById(property + '-cena').checked
+        return property === "eggs"
+    })
+    MicroModal.close('modal');
 }
 function lock(day, meal, side){
     if(day && meal && side){

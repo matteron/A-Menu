@@ -120,3 +120,7 @@ hr {
     cursor: pointer;
     font-size: 20px;
 }
+.modal-numbers {
+    font-size: 18px;
+    margin: 0px 6px;
+}

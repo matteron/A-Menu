@@ -211,18 +211,59 @@
           <div class="modal__overlay" tabindex="-1" data-micromodal-close>
             <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-title">
               <header class="modal__header">
-                <h2 class="modal__title" id="modal-title">
-                  
-                </h2>
+                <h2 class="modal__title" id="modal-title"></h2>
                 <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
               </header>
               <main class="modal__content" id="modal-content">
-                <p>
-                  Try hitting the <code>tab</code> key and notice how the focus stays within the modal itself. Also, <code>esc</code> to close modal.
-                </p>
+                <div style="display: flex">
+                  <div>
+                    <br/>
+                    Legumi <br/>
+                    Pasta <br/>
+                    Riso <br/>
+                    Carne <br/>
+                    Pesce <br/>
+                    Pollo <br/>
+                    Uova <br/>
+                  </div>
+                  <div>
+                    <div style="display: flex">
+                    <p style="color: #50C9CE" class="modal-numbers">1</p>
+                    <p style="color: #50C9CE" class="modal-numbers">2</p>
+                    <p style="color: #E94F37" class="modal-numbers">C</p>
+                    </div>
+                    <input type ="checkbox" name="category" id="legume-primo"/>
+                    <input type ="checkbox" name="category" id="legume-secondo"/>
+                    <input type ="checkbox" name="category" id="legume-cena"/><br/>
+
+                    <input type ="checkbox" name="category" id="pasta-primo"/>
+                    <input type ="checkbox" name="category" id="pasta-secondo"/>
+                    <input type ="checkbox" name="category" id="pasta-cena"/><br/>
+
+                    <input type ="checkbox" name="category" id="rice-primo"/>
+                    <input type ="checkbox" name="category" id="rice-secondo"/>
+                    <input type ="checkbox" name="category" id="rice-cena"/><br/>
+
+                    <input type ="checkbox" name="category" id="meat-primo"/>
+                    <input type ="checkbox" name="category" id="meat-secondo"/>
+                    <input type ="checkbox" name="category" id="meat-cena"/><br/>
+
+                    <input type ="checkbox" name="category" id="fish-primo"/>
+                    <input type ="checkbox" name="category" id="fish-secondo"/>
+                    <input type ="checkbox" name="category" id="fish-cena"/><br/>
+
+                    <input type ="checkbox" name="category" id="chicken-primo"/>
+                    <input type ="checkbox" name="category" id="chicken-secondo"/>
+                    <input type ="checkbox" name="category" id="chicken-cena"/><br/>
+
+                    <input type ="checkbox" name="category" id="eggs-primo"/>
+                    <input type ="checkbox" name="category" id="eggs-secondo"/>
+                    <input type ="checkbox" name="category" id="eggs-cena"/><br/>
+                  </div>
+                </div>
               </main>
               <footer class="modal__footer">
-                <input type="button" class="modal__btn modal__btn-primary" onclick="saveSettings(`Monday`)">Save</button>
+                <button class="modal__btn modal__btn-primary" id="save-button">Save</button>
                 <button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">Close</button>
               </footer>
             </div>

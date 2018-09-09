@@ -19,7 +19,7 @@
   }
   
   .modal__container {
-    background-color: #fff;
+    background-color: #F6F7EB;
     padding: 30px;
     max-width: 500px;
     max-height: 100vh;
@@ -39,7 +39,7 @@
     margin-bottom: 0;
     font-weight: 600;
     font-size: 1.25rem;
-    line-height: 1.25;
+    line-height: 1;
     color: #00449e;
     box-sizing: border-box;
   }
@@ -52,7 +52,7 @@
   .modal__header .modal__close:before { content: "\2715"; }
   
   .modal__content {
-    margin-top: 2rem;
+    margin-top: 1rem;
     margin-bottom: 2rem;
     line-height: 1.5;
     color: rgba(0,0,0,.8);
