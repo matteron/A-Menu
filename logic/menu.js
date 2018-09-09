@@ -18,7 +18,10 @@ class Menu {
     generateWeek(current) {
         let checkArray = []
         if(current){
-            //check locks
+            this.current = current
+            //check locks and reset any unlocked ones
+        } else {
+            this.current = require('../data/current.json')
         }
         this.current["Monday"].Lunch1.meal.item = this.menu["mains"]["legume"]["pastaAndPeas"]
         this.current["Monday"].Lunch2.meal.item = this.menu["mains"]["eggs"]["omlette"]
