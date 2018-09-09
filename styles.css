@@ -10,6 +10,7 @@ body {
     background-color: var(--white);
     margin-top: 50px;
 }
+  
 .week-view {
     display: flex;
 }
@@ -113,4 +114,9 @@ hr {
 .ingredients {
     overflow: auto;
     height: 600px;
+}
+.settings {
+    align-self: center;
+    cursor: pointer;
+    font-size: 20px;
 }

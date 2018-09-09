@@ -11,6 +11,10 @@
   "author": "Mattia Schiano",
   "license": "ISC",
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.3.1",
     "electron": "^2.0.8"
+  },
+  "dependencies": {
+    "micromodal": "^0.3.2"
   }
 }

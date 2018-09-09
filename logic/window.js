@@ -1,14 +1,12 @@
 const Menu = require('./logic/menu.js')
+const MicroModal = require('micromodal');
+MicroModal.init();
+
 let menu = new Menu()
-let english = false;
+let english = true
 
-function generate(){
-    menu.generateWeek()
-    populatePage(menu.current, menu.ingredients)
-}
-
-function language() {
-    let local = {
+function local(string){
+    return{
         "Monday": (english ? "Mon" : "Lun"),
         "Tuesday": (english ? "Tue" : "Mar"),
         "Wednesday": (english ? "Wed" : "Mer"),
@@ -18,25 +16,47 @@ function language() {
         "Sunday": (english ? "Sun" : "Dom"),
         "Lunch": (english ? "Lunch" : "Pranzo"),
         "Dinner": (english ? "Dinner" : "Cena"),
-        "Ingredients": (english ? "Ingredients": "Ingredienti")
-    }
+        "Ingredients": (english ? "Ingredients" : "Ingredienti"),
+        "Generate": (english ? "Create Menu" : "Crea Menu")
+    }[string]
+}
+
+function generate(){
+    menu.generateWeek()
+    populatePage(menu.current, menu.ingredients)
+}
+
+function language() {
+    english = !english
     for(propertyName in menu.current){
-        document.getElementById(propertyName + '-title').innerText = local[propertyName]
+        document.getElementById(propertyName + '-title').innerText = local(propertyName)
     }
     let lunch = document.getElementsByClassName('lunch-title')
     Array.prototype.forEach.call(lunch, function(el) { 
-        el.innerText = local["Lunch"]
+        el.innerText = local("Lunch")
     });
     let dinner = document.getElementsByClassName('dinner-title')
     Array.prototype.forEach.call(dinner, function(el) { 
-        el.innerText = local["Dinner"]
+        el.innerText = local("Dinner")
     });
-    document.getElementById("ingredient-title").innerText = local["Ingredients"]
-    english = !english
+    document.getElementById("ingredient-title").innerText = local("Ingredients")
 }
 
-function lock(path){
+function openSettings(day){
+    document.getElementById("modal-title").innerText = local(day);
+    MicroModal.show('modal');
+}
+function saveSettings(day){
 
+}
+function lock(day, meal, side){
+    if(day && meal && side){
+        
+    } else if (day && meal){
+
+    } else if (day) {
+        
+    }
 }
 
 function populatePage(current, ingredients){

@@ -4,6 +4,7 @@
       <meta charset="UTF-8">
       <title>A-Menu</title>
       <link rel="stylesheet" href="./styles.css">
+      <link rel="stylesheet" href="./modal.css">
       <script src="./logic/window.js"></script>
     </head>
     <body>
@@ -11,7 +12,10 @@
         <div class="right-column">
           <div class="column-half">
               <div class="week-card">
-                <div id="Monday-title" class="day-text">Mon</div>
+                <div style="display: flex; justify-content: space-between;">
+                  <div id="Monday-title" class="day-text">Mon</div>
+                  <input type="button" class="settings" value="&#9881" onclick="openSettings(`Monday`)"/>
+                </div>
                 <hr class="lunch-line"/>
                 <div class="lunch">
                   <div class="lunch-title">Lunch</div>
@@ -30,7 +34,10 @@
                 </div>
               </div>
               <div class="week-card">
-                <div id="Tuesday-title" class="day-text">Tue</div>
+                  <div style="display: flex; justify-content: space-between;">
+                      <div id="Tuesday-title" class="day-text">Tue</div>
+                      <input type="button" class="settings" value="&#9881" onclick="openSettings(`Tuesday`)"/>
+                    </div>
                 <hr class="lunch-line"/>
                 <div class="lunch">
                   <div class="lunch-title">Lunch</div>
@@ -49,7 +56,10 @@
                 </div>
               </div>
               <div class="week-card">
-                <div id="Wednesday-title" class="day-text">Wed</div>
+                <div style="display: flex; justify-content: space-between;">
+                  <div id="Wednesday-title" class="day-text">Wed</div>
+                  <input type="button" class="settings" value="&#9881" onclick="openSettings(`Wednesday`)"/>
+                </div>
                 <hr class="lunch-line"/>
                 <div class="lunch">
                   <div class="lunch-title">Lunch</div>
@@ -70,7 +80,10 @@
           </div>
           <div class="column-half">
               <div class="week-card">
-                <div id="Friday-title" class="day-text">Fri</div>
+                <div style="display: flex; justify-content: space-between;">
+                  <div id="Friday-title" class="day-text">Fri</div>
+                  <input type="button" class="settings" value="&#9881" onclick="openSettings(`Friday`)"/>
+                </div>
                 <hr class="lunch-line"/>
                 <div class="lunch">
                   <div class="lunch-title">Lunch</div>
@@ -89,7 +102,10 @@
                 </div>
               </div>
               <div class="week-card">
-                <div id="Saturday-title" class="day-text">Sat</div>
+                <div style="display: flex; justify-content: space-between;">
+                  <div id="Saturday-title" class="day-text">Sat</div>
+                  <input type="button" class="settings" value="&#9881" onclick="openSettings(`Saturday`)"/>
+                </div>
                 <hr class="lunch-line"/>
                 <div class="lunch">
                   <div class="lunch-title">Lunch</div>
@@ -123,7 +139,10 @@
         </div>
         <div class="sunday-column">
             <div class="week-card">
-              <div id="Thursday-title" class="day-text">Thu</div>
+              <div style="display: flex; justify-content: space-between;">
+                <div id="Thursday-title" class="day-text">Thu</div>
+                <input type="button" class="settings" value="&#9881" onclick="openSettings(`Thursday`)"/>
+              </div>
               <hr class="lunch-line"/>
               <div class="lunch">
                 <div class="lunch-title">Lunch</div>
@@ -187,5 +206,28 @@
           </div>
         </div>
       </div>
+
+      <div class="modal micromodal-slide" id="modal" aria-hidden="true">
+          <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+            <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+              <header class="modal__header">
+                <h2 class="modal__title" id="modal-title">
+                  
+                </h2>
+                <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+              </header>
+              <main class="modal__content" id="modal-content">
+                <p>
+                  Try hitting the <code>tab</code> key and notice how the focus stays within the modal itself. Also, <code>esc</code> to close modal.
+                </p>
+              </main>
+              <footer class="modal__footer">
+                <input type="button" class="modal__btn modal__btn-primary" onclick="saveSettings(`Monday`)">Save</button>
+                <button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">Close</button>
+              </footer>
+            </div>
+          </div>
+        </div>
+
     </body>
   </html>
