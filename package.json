@@ -1,0 +1,16 @@
+{
+  "name": "a-menu",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Menu Generation app for my Loving Mother",
+  "main": "main.js",
+  "scripts": {
+    "test": "test",
+    "start": "electron ."
+  },
+  "author": "Mattia Schiano",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^2.0.8"
+  }
+}

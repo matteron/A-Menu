@@ -1,0 +1,109 @@
+:root {
+    --white: #F6F7EB;
+    --black: #393E41;
+    --blue: #50C9CE;
+    --red: #E94F37;
+    --gray: #4C5154;
+}
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    background-color: var(--white);
+}
+.week-view {
+    display: flex;
+}
+.column-half {
+    display: flex;
+}
+.sunday-column {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+}
+.week-card {
+    background-color: white;
+    color: var(--gray);
+    width: 180px;
+    height: 300px;
+    border-radius: 12px;
+    padding: 8px;
+    box-shadow: 2px 2px 8px 0px rgba(0,0,0,0.25);
+    margin: 5px;
+}
+.day-text {
+    font-size: 24px;
+    color: var(--black);
+}
+.lunch {
+    height: 50%;
+}
+.lunch-content {
+    font-size: 18px;
+}
+
+.dinner {
+    height: 50%;
+}
+.dinner-content {
+    font-size: 18px;
+}
+.lunch-title {
+    font-size: 24px;
+    color: var(--blue);
+}
+.dinner-title {
+    font-size: 24px;
+    color: var(--red);
+}
+hr {
+    border: 0;
+    margin: 1px;
+    border-bottom: 2px solid var(--black);
+}
+.lunch-line {
+    border-bottom-color: var(--blue);
+}
+.dinner-line {
+    border-bottom-color: var(--red);
+}
+.button-div {
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.generate{
+    background-color: white;
+    color: var(--black);
+    width: 120px;
+    height: 60px;
+    box-shadow: 2px 2px 8px 0px rgba(0,0,0,0.25);
+    padding: 8px;
+    border-radius: 12px;
+    border-color: white;
+    border: 2px white solid;
+    font-size: 18px;
+    transition: border-color 0.5s;
+    outline: none;
+    cursor: pointer;
+}
+.generate:hover{
+    border-color: var(--black);
+    transition: border-color 0.5s;
+}
+.generate:active{
+    border-color: var(--blue);
+    transition: border-color 0.5s;
+}
+.ingredients-column{
+    width: 600px;
+}
+.ingredients-card{
+    background-color: white;
+    color: var(--black);
+    border-radius: 12px;
+    padding: 8px;
+    box-shadow: 2px 2px 8px 0px rgba(0,0,0,0.25);
+    margin: 5px;
+}

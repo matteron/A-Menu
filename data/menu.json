@@ -1,0 +1,57 @@
+{
+    "mains": {
+        "legume": {
+            "pastaAndPeas": {
+                "name": "Pasta e Piselli",
+                "numberSides": false,
+                "ingredients": [
+                    "Pasta Corta",
+                    "Piselli Congelati",
+                    "Cipolla",
+                    "Olio",
+                    "Concentrato di Pomodoro",
+                    "Sale"
+                ]
+            }
+        },
+        "paste": {
+
+        },
+        "rice": {
+
+        },
+        "meat": {
+
+        },
+        "fish": {
+
+        },
+        "chicken": {
+
+        },
+        "eggs": {
+            "omlette": {
+                "name": "Frittata",
+                "sides": true,
+                "ingredients": [
+                    "Carcofini Congelati",
+                    "Uovo",
+                    "Parmigiano",
+                    "Farina",
+                    "Sale",
+                    "Pepe",
+                    "Olio Frittura"
+                ]
+            }
+        },
+        "sunday": {
+            "meatballs": {
+                "name": "Polpette",
+                "sides": true
+            }
+        }
+    },
+    "sides": [
+        
+    ]
+}

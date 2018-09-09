@@ -1,0 +1,380 @@
+{
+    "Monday": {
+        "locked": false,
+        "Lunch1": {
+            "meal": {
+                "item": null,
+                "locked": false
+            },
+            "sides": {
+                "state": false,
+                "side1": {
+                    "item": null,
+                    "locked": false
+                },
+                "side2": {
+                    "item": null,
+                    "locked": false
+                }
+            }
+        },
+        "Lunch2": {
+            "meal": {
+                "item": null,
+                "locked": false
+            },
+            "sides": {
+                "state": false,
+                "side1": {
+                    "item": null,
+                    "locked": false
+                },
+                "side2": {
+                    "item": null,
+                    "locked": false
+                }
+            }
+        },
+        "Dinner": {
+            "meal": {
+                "item": null,
+                "locked": false
+            },
+            "sides": {
+                "state": false,
+                "side1": {
+                    "item": null,
+                    "locked": false
+                },
+                "side2": {
+                    "item": null,
+                    "locked": false
+                }
+            }
+        }
+    },
+    "Tuesday": {
+        "locked": false,
+        "Lunch1": {
+            "meal": {
+                "item": null,
+                "locked": false
+            },
+            "sides": {
+                "state": false,
+                "side1": {
+                    "item": null,
+                    "locked": false
+                },
+                "side2": {
+                    "item": null,
+                    "locked": false
+                }
+            }
+        },
+        "Lunch2": {
+            "meal": {
+                "item": null,
+                "locked": false
+            },
+            "sides": {
+                "state": false,
+                "side1": {
+                    "item": null,
+                    "locked": false
+                },
+                "side2": {
+                    "item": null,
+                    "locked": false
+                }
+            }
+        },
+        "Dinner": {
+            "meal": {
+                "item": null,
+                "locked": false
+            },
+            "sides": {
+                "state": false,
+                "side1": {
+                    "item": null,
+                    "locked": false
+                },
+                "side2": {
+                    "item": null,
+                    "locked": false
+                }
+            }
+        }
+    },
+    "Wednesday": {
+        "locked": false,
+        "Lunch1": {
+            "meal": {
+                "item": null,
+                "locked": false
+            },
+            "sides": {
+                "state": false,
+                "side1": {
+                    "item": null,
+                    "locked": false
+                },
+                "side2": {
+                    "item": null,
+                    "locked": false
+                }
+            }
+        },
+        "Lunch2": {
+            "meal": {
+                "item": null,
+                "locked": false
+            },
+            "sides": {
+                "state": false,
+                "side1": {
+                    "item": null,
+                    "locked": false
+                },
+                "side2": {
+                    "item": null,
+                    "locked": false
+                }
+            }
+        },
+        "Dinner": {
+            "meal": {
+                "item": null,
+                "locked": false
+            },
+            "sides": {
+                "state": false,
+                "side1": {
+                    "item": null,
+                    "locked": false
+                },
+                "side2": {
+                    "item": null,
+                    "locked": false
+                }
+            }
+        }
+    },
+    "Thursday": {
+        "locked": false,
+        "Lunch1": {
+            "meal": {
+                "item": null,
+                "locked": false
+            },
+            "sides": {
+                "state": false,
+                "side1": {
+                    "item": null,
+                    "locked": false
+                },
+                "side2": {
+                    "item": null,
+                    "locked": false
+                }
+            }
+        },
+        "Lunch2": {
+            "meal": {
+                "item": null,
+                "locked": false
+            },
+            "sides": {
+                "state": false,
+                "side1": {
+                    "item": null,
+                    "locked": false
+                },
+                "side2": {
+                    "item": null,
+                    "locked": false
+                }
+            }
+        },
+        "Dinner": {
+            "meal": {
+                "item": null,
+                "locked": false
+            },
+            "sides": {
+                "state": false,
+                "side1": {
+                    "item": null,
+                    "locked": false
+                },
+                "side2": {
+                    "item": null,
+                    "locked": false
+                }
+            }
+        }
+    },
+    "Friday": {
+        "locked": false,
+        "Lunch1": {
+            "meal": {
+                "item": null,
+                "locked": false
+            },
+            "sides": {
+                "state": false,
+                "side1": {
+                    "item": null,
+                    "locked": false
+                },
+                "side2": {
+                    "item": null,
+                    "locked": false
+                }
+            }
+        },
+        "Lunch2": {
+            "meal": {
+                "item": null,
+                "locked": false
+            },
+            "sides": {
+                "state": false,
+                "side1": {
+                    "item": null,
+                    "locked": false
+                },
+                "side2": {
+                    "item": null,
+                    "locked": false
+                }
+            }
+        },
+        "Dinner": {
+            "meal": {
+                "item": null,
+                "locked": false
+            },
+            "sides": {
+                "state": false,
+                "side1": {
+                    "item": null,
+                    "locked": false
+                },
+                "side2": {
+                    "item": null,
+                    "locked": false
+                }
+            }
+        }
+    },
+    "Saturday": {
+        "locked": false,
+        "Lunch1": {
+            "meal": {
+                "item": null,
+                "locked": false
+            },
+            "sides": {
+                "state": false,
+                "side1": {
+                    "item": null,
+                    "locked": false
+                },
+                "side2": {
+                    "item": null,
+                    "locked": false
+                }
+            }
+        },
+        "Lunch2": {
+            "meal": {
+                "item": null,
+                "locked": false
+            },
+            "sides": {
+                "state": false,
+                "side1": {
+                    "item": null,
+                    "locked": false
+                },
+                "side2": {
+                    "item": null,
+                    "locked": false
+                }
+            }
+        },
+        "Dinner": {
+            "meal": {
+                "item": null,
+                "locked": false
+            },
+            "sides": {
+                "state": false,
+                "side1": {
+                    "item": null,
+                    "locked": false
+                },
+                "side2": {
+                    "item": null,
+                    "locked": false
+                }
+            }
+        }
+    },
+    "Sunday": {
+        "locked": false,
+        "Lunch1": {
+            "meal": {
+                "item": null,
+                "locked": false
+            },
+            "sides": {
+                "state": false,
+                "side1": {
+                    "item": null,
+                    "locked": false
+                },
+                "side2": {
+                    "item": null,
+                    "locked": false
+                }
+            }
+        },
+        "Lunch2": {
+            "meal": {
+                "item": null,
+                "locked": false
+            },
+            "sides": {
+                "state": false,
+                "side1": {
+                    "item": null,
+                    "locked": false
+                },
+                "side2": {
+                    "item": null,
+                    "locked": false
+                }
+            }
+        },
+        "Dinner": {
+            "meal": {
+                "item": null,
+                "locked": false
+            },
+            "sides": {
+                "state": false,
+                "side1": {
+                    "item": null,
+                    "locked": false
+                },
+                "side2": {
+                    "item": null,
+                    "locked": false
+                }
+            }
+        }
+    }
+}

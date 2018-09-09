@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="UTF-8">
+      <title>A-Menu</title>
+      <link rel="stylesheet" href="./styles.css">
+      <script src="./logic/window.js"></script>
+    </head>
+    <body>
+      <div class="week-view">
+        <div class="right-column">
+          <div class="column-half">
+              <div class="week-card">
+                <div class="day-text">Mon</div>
+                <hr class="lunch-line"/>
+                <div class="lunch">
+                  <div class="lunch-title">Lunch</div>
+                  <div class="lunch-content">
+                      <div id="Monday-lunch1"></div>
+                      <div id="Monday-seperator"></div>
+                      <div id="Monday-lunch2"></div>
+                  </div>
+                </div>
+                <hr class="dinner-line"/>
+                <div class="dinner">
+                  <div class="dinner-title">Dinner</div>
+                  <div class="dinner-content">
+                      <div id="Monday-dinner"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="week-card">
+                <div class="day-text">Tue</div>
+                <hr class="lunch-line"/>
+                <div class="lunch">
+                  <div class="lunch-title">Lunch</div>
+                  <div class="lunch-content">
+                    <div id="Tuesday-lunch1"></div>
+                    <div id="Tuesday-seperator"></div>
+                    <div id="Tuesday-lunch2"></div>
+                  </div>
+                </div>
+                <hr class="dinner-line"/>
+                <div class="dinner">
+                  <div class="dinner-title">Dinner</div>
+                  <div class="dinner-content">
+                      <div id="Tuesday-dinner"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="week-card">
+                <div class="day-text">Wed</div>
+                <hr class="lunch-line"/>
+                <div class="lunch">
+                  <div class="lunch-title">Lunch</div>
+                  <div class="lunch-content">
+                      <div id="Wednesday-lunch1"></div>
+                      <div id="Wednesday-seperator"></div>
+                      <div id="Wednesday-lunch2"></div>
+                  </div>
+                </div>
+                <hr class="dinner-line"/>
+                <div class="dinner">
+                  <div class="dinner-title">Dinner</div>
+                  <div class="dinner-content">
+                      <div id="Wednesday-dinner"></div>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="column-half">
+              <div class="week-card">
+                <div class="day-text">Thu</div>
+                <hr class="lunch-line"/>
+                <div class="lunch">
+                  <div class="lunch-title">Lunch</div>
+                  <div class="lunch-content">
+                    <div id="Thursday-lunch1"></div>
+                    <div id="Wednesday-seperator"></div>
+                    <div id="Thursday-lunch2"></div>
+                  </div>
+                </div>
+                <hr class="dinner-line"/>
+                <div class="dinner">
+                  <div class="dinner-title">Dinner</div>
+                  <div class="dinner-content">
+                    <div id="Thursday-dinner"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="week-card">
+                <div class="day-text">Fri</div>
+                <hr class="lunch-line"/>
+                <div class="lunch">
+                  <div class="lunch-title">Lunch</div>
+                  <div class="lunch-content">
+                    <div id="Friday-lunch1"></div>
+                    <div id="Wednesday-seperator"></div>
+                    <div id="Friday-lunch2"></div>
+                  </div>
+                </div>
+                <hr class="dinner-line"/>
+                <div class="dinner">
+                  <div class="dinner-title">Dinner</div>
+                  <div class="dinner-content">
+                    <div id="Friday-dinner"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="week-card">
+                <div class="day-text">Sat</div>
+                <hr class="lunch-line"/>
+                <div class="lunch">
+                  <div class="lunch-title">Lunch</div>
+                  <div class="lunch-content">
+                    <div id="Saturday-lunch1"></div>
+                    <div id="Wednesday-seperator"></div>
+                    <div id="Saturday-lunch2"></div>
+                  </div>
+                </div>
+                <hr class="dinner-line"/>
+                <div class="dinner">
+                  <div class="dinner-title">Dinner</div>
+                  <div class="dinner-content">
+                    <div id="Saturday-dinner"></div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="sunday-column">
+            <div class="button-div">
+              <input type="button" class="generate" value="Crea Menu" onclick="generate()"/>
+            </div>
+            <div class="week-card">
+              <div class="day-text">Sun</div>
+              <hr class="lunch-line"/>
+                <div class="lunch">
+                  <div class="lunch-title">Lunch</div>
+                  <div class="lunch-content">
+                      <div id="Sunday-lunch1"></div>
+                      <div id="Wednesday-seperator"></div>
+                      <div id="Sunday-lunch2"></div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="ingredients-column">
+          <div class="ingredients-card">
+            <div class="day-text">Ingredients</div>
+            <hr/>
+            <div id=ingredients>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+  </html>

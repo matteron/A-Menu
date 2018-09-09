@@ -1,0 +1,226 @@
+{
+    "Monday": {
+        "Lunch1": {
+            "legume": true,
+            "pasta": false,
+            "rice": false,
+            "meat": false,
+            "fish": false,
+            "chicken": false,
+            "eggs": false,
+            "sunday": false
+        },
+        "Lunch2": {
+            "legume": false,
+            "pasta": false,
+            "rice": false,
+            "meat": false,
+            "fish": false,
+            "chicken": false,
+            "eggs": true,
+            "sunday": false
+        },
+        "Dinner": {
+            "legume": false,
+            "pasta": false,
+            "rice": false,
+            "meat": false,
+            "fish": false,
+            "chicken": false,
+            "eggs": true,
+            "sunday": false
+        }
+    },
+    "Tuesday": {
+        "Lunch1": {
+            "legume": false,
+            "pasta": false,
+            "rice": false,
+            "meat": false,
+            "fish": false,
+            "chicken": false,
+            "eggs": false,
+            "sunday": false
+        },
+        "Lunch2": {
+            "legume": false,
+            "pasta": false,
+            "rice": false,
+            "meat": false,
+            "fish": false,
+            "chicken": false,
+            "eggs": false,
+            "sunday": false
+        },
+        "Dinner": {
+            "legume": false,
+            "pasta": false,
+            "rice": false,
+            "meat": false,
+            "fish": false,
+            "chicken": false,
+            "eggs": false,
+            "sunday": false
+        }
+    },
+    "Wednesday": {
+        "Lunch1": {
+            "legume": false,
+            "pasta": false,
+            "rice": false,
+            "meat": false,
+            "fish": false,
+            "chicken": false,
+            "eggs": false,
+            "sunday": false
+        },
+        "Lunch2": {
+            "legume": false,
+            "pasta": false,
+            "rice": false,
+            "meat": false,
+            "fish": false,
+            "chicken": false,
+            "eggs": false,
+            "sunday": false
+        },
+        "Dinner": {
+            "legume": false,
+            "pasta": false,
+            "rice": false,
+            "meat": false,
+            "fish": false,
+            "chicken": false,
+            "eggs": false,
+            "sunday": false
+        }
+    },
+    "Thursday": {
+        "Lunch1": {
+            "legume": false,
+            "pasta": false,
+            "rice": false,
+            "meat": false,
+            "fish": false,
+            "chicken": false,
+            "eggs": false,
+            "sunday": false
+        },
+        "Lunch2": {
+            "legume": false,
+            "pasta": false,
+            "rice": false,
+            "meat": false,
+            "fish": false,
+            "chicken": false,
+            "eggs": false,
+            "sunday": false
+        },
+        "Dinner": {
+            "legume": false,
+            "pasta": false,
+            "rice": false,
+            "meat": false,
+            "fish": false,
+            "chicken": false,
+            "eggs": false,
+            "sunday": false
+        }
+    },
+    "Friday": {
+        "Lunch1": {
+            "legume": false,
+            "pasta": false,
+            "rice": false,
+            "meat": false,
+            "fish": false,
+            "chicken": false,
+            "eggs": false,
+            "sunday": false
+        },
+        "Lunch2": {
+            "legume": false,
+            "pasta": false,
+            "rice": false,
+            "meat": false,
+            "fish": false,
+            "chicken": false,
+            "eggs": false,
+            "sunday": false
+        },
+        "Dinner": {
+            "legume": false,
+            "pasta": false,
+            "rice": false,
+            "meat": false,
+            "fish": false,
+            "chicken": false,
+            "eggs": false,
+            "sunday": false
+        }
+    },
+    "Saturday": {
+        "Lunch1": {
+            "legume": false,
+            "pasta": false,
+            "rice": false,
+            "meat": false,
+            "fish": false,
+            "chicken": false,
+            "eggs": false,
+            "sunday": false
+        },
+        "Lunch2": {
+            "legume": false,
+            "pasta": false,
+            "rice": false,
+            "meat": false,
+            "fish": false,
+            "chicken": false,
+            "eggs": false,
+            "sunday": false
+        },
+        "Dinner": {
+            "legume": false,
+            "pasta": false,
+            "rice": false,
+            "meat": false,
+            "fish": false,
+            "chicken": false,
+            "eggs": false,
+            "sunday": false
+        }
+    },
+    "Sunday": {
+        "Lunch1": {
+            "legume": false,
+            "pasta": false,
+            "rice": false,
+            "meat": false,
+            "fish": false,
+            "chicken": false,
+            "eggs": false,
+            "sunday": true
+        },
+        "Lunch2": {
+            "legume": false,
+            "pasta": false,
+            "rice": false,
+            "meat": false,
+            "fish": false,
+            "chicken": false,
+            "eggs": false,
+            "sunday": true
+        },
+        "Dinner": {
+            "legume": false,
+            "pasta": false,
+            "rice": false,
+            "meat": false,
+            "fish": false,
+            "chicken": false,
+            "eggs": false,
+            "sunday": false
+        }
+    }
+}
