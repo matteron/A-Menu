@@ -29,6 +29,15 @@ class Menu {
         this.current["Monday"].Lunch2.sides.side1.item = {"name":"potate"}
         this.current["Monday"].Lunch2.sides.side2.item = {"name":"beans"}
     }
+
+    saveDefaults(){
+        var json = JSON.stringify(this.defaults);
+        var fs = require('fs');
+        fs.writeFile('./data/default.json', json, (err) => {
+            if (err) throw err;
+            console.log('Defaults have been saved!');
+        });
+    }
 };
 
 module.exports = Menu;

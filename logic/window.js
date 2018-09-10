@@ -71,6 +71,9 @@ function saveSettings(day){
     })
     MicroModal.close('modal');
 }
+function saveDefaults(){
+    menu.saveDefaults();
+}
 function lock(day, meal, side){
     if(day && meal && side){
         
