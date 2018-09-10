@@ -38,6 +38,32 @@ class Menu {
             console.log('Defaults have been saved!');
         });
     }
+
+    addMeal(meal, main, category){
+        if(main){
+            this.menu["mains"][category].push(meal)
+        } else {
+            this.menu["sides"].push(meal)
+        }
+
+        this.saveMenu()
+    }
+    deleteMeal(main, category, index){
+        if(main){
+            this.menu["mains"][category].splice(index,1)
+        } else {
+            this.menu["sides"].splice(index,1)
+        }
+    }
+
+    saveMenu(){
+        var json = JSON.stringify(this.menu);
+        var fs = require('fs');
+        fs.writeFile('./data/menu.json', json, (err) => {
+            if (err) throw err;
+            console.log('Menu has been saved!');
+        });
+    }
 };
 
 module.exports = Menu;

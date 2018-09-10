@@ -162,6 +162,7 @@
             </div>
             <div class="button-div">
                 <input type="button" class="generate" value="Crea Menu" onclick="generate()"/>
+                <input type="button" class="generate" value="Piatti" onclick="showViewMeal()"/>
                 <input type="button" class="generate" value="🇮🇹 / 🇬🇧" onclick="language()"/>
                 <input type="button" class="generate" value="Save &#9881" onclick="saveDefaults()"/>
             </div>
@@ -171,38 +172,7 @@
             <div id="ingredient-title" class="day-text">Ingredients</div>
             <hr/>
             <div id=ingredients class="ingredients">
-              <p>test</p>
-              <p>test</p>
-              <p>test</p>
-              <p>test</p>
-              <p>test</p>
-              <p>test</p>
-              <p>test</p>
-              <p>test</p>
-              <p>test</p>
-              <p>test</p>
-              <p>test</p>
-              <p>test</p>
-              <p>test</p>
-              <p>test</p>
-              <p>test</p>
-              <p>test</p>
-              <p>test</p>
-              <p>test</p>
-              <p>test</p>
-              <p>test</p>
-              <p>test</p>
-              <p>test</p>
-              <p>test</p>
-              <p>test</p>
-              <p>test</p>
-              <p>test</p>
-              <p>test</p>
-              <p>test</p>
-              <p>test</p>
-              <p>test</p>
-              <p>test</p>
-              <p>test</p>
+              
             </div>
           </div>
         </div>
@@ -265,6 +235,108 @@
               </main>
               <footer class="modal__footer">
                 <button class="modal__btn modal__btn-primary" id="save-button">Save</button>
+                <button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">Close</button>
+              </footer>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal micromodal-slide" id="addmeal-modal" aria-hidden="true">
+          <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+            <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+              <header class="modal__header">
+                <h2 class="modal__title">Add Meal</h2>
+                <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+              </header>
+              <main class="modal__content" id="addmeal-modal-content">
+                Nome:
+                <input type="text" id="addmeal-name"/>
+                
+                <br/>
+                <input type="radio" id="mealtype-main" name="mealType"checked="true" onclick="toggleAddMealOptions(true)">
+                <label for="contactChoice1">Principale </label>
+
+                <input type="radio" id="mealtype-side" name="mealType" onclick="toggleAddMealOptions(false)">
+                <label for="contactChoice2">Contorno </label>
+                <br/>
+
+                <p id="addmeal-categoryText" style="display: inline">Categoria </p>
+                <select id="addmeal-categories">
+                  <option value="legume">Legumi</option>
+                  <option value="pasta">Pasta</option>
+                  <option value="rice">Riso</option>
+                  <option value="meat">Carne</option>
+                  <option value="fish">Pesce</option>
+                  <option value="chicken">Pollo</option>
+                  <option value="eggs">Uova</option>
+                  <option value="sunday">Domenica</option>
+                </select>
+                <br/>
+
+                <p id="addmeal-sideText" style="display: inline">Contorni? </p>
+                <input type="checkbox" id="addmeal-contorni" name="contorni"/>
+                <br/>
+
+                Ingredienti<br/>
+                <textarea id="addmeal-ingredients" rows = "7" cols="30"></textarea>
+              </main>
+              <footer class="modal__footer">
+                <button class="modal__btn modal__btn-primary" id="addmeal-save-button" onclick="addMeal()">Save</button>
+                <button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">Close</button>
+              </footer>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal micromodal-slide" id="editmeal-modal" aria-hidden="true">
+          <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+            <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+              <header class="modal__header">
+                <h2 class="modal__title">Edit Meal</h2>
+                <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+              </header>
+              <main class="modal__content" id="editmeal-modal-content">
+
+              </main>
+              <footer class="modal__footer">
+                <button class="modal__btn modal__btn-primary" id="editmeal-save-button">Save</button>
+                <button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">Close</button>
+              </footer>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal micromodal-slide" id="viewmeal-modal" aria-hidden="true">
+          <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+            <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+              <header class="modal__header">
+                <h2 class="modal__title">Tutti i Piatti</h2>
+                <button onclick="showAddMeal()">+</button>
+                <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+              </header>
+              
+              <main class="modal__content" id="viewmeal-modal-content" style="overflow-y: auto">
+                <h3 class="modal__title">Legumi</h3>
+                <div id="view-legume"></div>
+                <h3 class="modal__title">Pasta</h3>
+                <div id="view-pasta"></div>
+                <h3 class="modal__title">Riso</h3>
+                <div id="view-rice"></div>
+                <h3 class="modal__title">Carne</h3>
+                <div id="view-meat"></div>
+                <h3 class="modal__title">Pesce</h3>
+                <div id="view-fish"></div>
+                <h3 class="modal__title">Pollo</h3>
+                <div id="view-chicken"></div>
+                <h3 class="modal__title">Uova</h3>
+                <div id="view-eggs"></div>
+                <h3 class="modal__title">Domenica</h3>
+                <div id="view-sunday"></div>
+                <h3 class="modal__title">Contorni</h3>
+                <div id="view-sides"></div>
+              </main>
+              <footer class="modal__footer">
+                <button class="modal__btn modal__btn-primary" id="viewmeals-save-button" onclick="saveViewMeal()">Save</button>
                 <button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">Close</button>
               </footer>
             </div>

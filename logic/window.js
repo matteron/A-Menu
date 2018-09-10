@@ -74,6 +74,87 @@ function saveSettings(day){
 function saveDefaults(){
     menu.saveDefaults();
 }
+function showAddMeal(){
+    MicroModal.close('viewmeal-modal')
+    MicroModal.show('addmeal-modal')
+}
+function addMeal(){
+    let main = document.getElementById("mealtype-main").checked
+    let meal = {
+        name: document.getElementById("addmeal-name").value
+    }
+    let ing = document.getElementById("addmeal-ingredients").value.split("\n")
+    meal["ingredients"] = ing
+
+    let category = document.getElementById("addmeal-categories").value
+    
+    if(main){
+        meal["sides"] = document.getElementById("addmeal-contorni").checked
+    }
+    if(meal.name){
+        MicroModal.close('addmeal-modal')
+        menu.addMeal(meal, main, category)
+        showViewMeal()
+    }
+}
+function toggleAddMealOptions(show){
+    if(show){
+        document.getElementById("addmeal-categoryText").style.display = "inline";
+        document.getElementById("addmeal-categories").style.display = "inline";
+        document.getElementById("addmeal-sideText").style.display = "inline";
+        document.getElementById("addmeal-contorni").style.display = "inline";
+    } else {
+        document.getElementById("addmeal-categoryText").style.display = "none";
+        document.getElementById("addmeal-categories").style.display = "none";
+        document.getElementById("addmeal-sideText").style.display = "none";
+        document.getElementById("addmeal-contorni").style.display = "none";
+    }
+}
+function populateViewMeal(){
+    for(category in menu.menu["mains"]){
+
+        document.getElementById("view-" + category).innerHTML = ""
+
+        for(item in menu.menu["mains"][category]){
+            let newel = `
+            <div style="display: flex">
+            <p>` + menu.menu["mains"][category][item].name +`</p>
+            <input type="button" class="settings" value="✏️" onclick=""/>
+            <input type="button" class="settings" value="❌" onclick="` + "deleteMeal(true, " + `'` + category + `'` + ", " + item + ")" + `"/>
+            </div>
+            `
+            document.getElementById("view-" + category).innerHTML += newel
+        }
+    }
+    document.getElementById("view-sides").innerHTML = ""
+    for(item in menu.menu["sides"]){
+        let newel = `
+        <div style="display: flex">
+        <p>` + menu.menu["sides"][item].name +`</p>
+        <input type="button" class="settings" value="✏️" onclick=""/>
+        <input type="button" class="settings" value="❌" onclick="` + "deleteMeal(false, null, " + item + ") " + `"/>
+        </div>
+        `
+        document.getElementById("view-sides").innerHTML += newel
+    }
+}
+function showViewMeal(){
+    populateViewMeal();
+    MicroModal.show("viewmeal-modal")
+}
+function showEditMeal(main, category, index){
+
+}
+function deleteMeal(main, category, index){
+    menu.deleteMeal(main,category, index)
+    populateViewMeal();
+}
+
+function saveViewMeal(){
+    MicroModal.close("viewmeal-modal")
+    menu.saveMenu();
+}
+
 function lock(day, meal, side){
     if(day && meal && side){
         
