@@ -4,28 +4,43 @@ class Menu {
         this.defaults = require('../data/default.json')
         this.menu = require('../data/menu.json')
         this.current = require('../data/current.json')
-    }
-
-    pickRandomProperty(obj) {
-        var result;
-        var count = 0;
-        for (var prop in obj)
-            if (Math.random() < 1/++count)
-               result = prop;
-        return result;
+        this.saved = require('../data/savedCurrent.json')
+        if(!this.saved.clear){
+            this.current = this.saved
+        }
     }
 
     generateWeek() {
-        
-        for(day in this.defaults){
-            let catLunch1 = []
-            let catLunch2 = []
-            let catDinner = []
-            if(this.current[day].locked){
+        let takenMeal = []
+        // clear current and generate taken food spots
+        for(var day in this.current){
+            if(!this.current[day].locked){
+                for(var cat in this.current[day]){
+                    if(cat !== "locked"){
+                        if(!this.current[day][cat].meal.locked){
+                            this.current[day][cat].meal.item = null
+                        } else {
+                            takenMeal.push(this.current[day][cat].meal.item)
+                        }
+                        if(!this.current[day][cat].sides.side1.locked){
+                            this.current[day][cat].sides.side1.item = null
+                        }
+                        if(!this.current[day][cat].sides.side2.locked){
+                            this.current[day][cat].sides.side2.item = null
+                        }
+                    }
+                }
+            }
+        }
 
-            } else {
+        for(var day in this.defaults){
+            
+            if(!this.current[day].locked){
+                let catLunch1 = []
+                let catLunch2 = []
+                let catDinner = []
                 // build category arrays
-                for(cat in this.defaults[day]["Lunch1"]){
+                for(var cat in this.defaults[day]["Lunch1"]){
                     if(this.defaults[day]["Lunch1"][cat]){
                         catLunch1.push(cat)
                     }
@@ -36,14 +51,48 @@ class Menu {
                         catDinner.push(cat)
                     }
                 }
-
-                let indexL1 = Math.floor(Math.random() * catLunch1.length);
-                let indexL2 = Math.floor(Math.random() * catLunch2.length);
-                let indexD  = Math.floor(Math.random() * catDinner.length);
-
+                let categories = {
+                    "Lunch1": catLunch1,
+                    "Lunch2": catLunch2,
+                    "Dinner": catDinner
+                }
                 
+                for(var squareMeal in this.current[day]) {
+                    if((day === "Sunday" && squareMeal === "Dinner") || squareMeal === "locked"){
+                        continue;
+                    }
+                    let catIndex, itemIndex, pass
+                    do {
+                        catIndex = categories[squareMeal][Math.floor(Math.random() * categories[squareMeal].length)];
+                        itemIndex = Math.floor(Math.random() * this.menu["mains"][catIndex].length);
+                        pass = false
+                        takenMeal.forEach((meal) => {
+                            if(meal === this.menu.mains[catIndex][itemIndex]){
+                                pass = true
+                            }
+                        })
+                    } while(pass)
+                    this.current[day][squareMeal].meal.item = this.menu.mains[catIndex][itemIndex]
+                    takenMeal.push(this.current[day][squareMeal].meal.item)
+                    if(this.current[day][squareMeal].meal.item.sides){
+                        this.chooseSides(this.current[day][squareMeal].sides)
+                    } else {
+                        this.current[day][squareMeal].sides.state = false
+                    }
+                }
             }
         }
+    }
+
+    chooseSides(sides){
+        sides.state = true
+        let side1Index = Math.floor(Math.random() * this.menu["sides"].length);
+        let side2Index;
+        do {
+            side2Index = Math.floor(Math.random() * this.menu["sides"].length);
+        }while(side1Index === side2Index)
+        sides.side1.item = this.menu.sides[side1Index]
+        sides.side2.item = this.menu.sides[side2Index]
     }
 
     saveDefaults(){
@@ -52,6 +101,24 @@ class Menu {
         fs.writeFile('./data/default.json', json, (err) => {
             if (err) throw err;
             console.log('Defaults have been saved!');
+        });
+    }
+
+    saveCurrent(){
+        var json = JSON.stringify(this.current);
+        var fs = require('fs');
+        fs.writeFile('./data/savedCurrent.json', json, (err) => {
+            if (err) throw err;
+            console.log('Current has been saved!');
+        });
+    }
+    resetCurrent(){
+        this.current = require('../data/current.json')
+        var json = JSON.stringify({"clear": true});
+        var fs = require('fs');
+        fs.writeFile('./data/savedCurrent.json', json, (err) => {
+            if (err) throw err;
+            console.log('Current has been reset!');
         });
     }
 

@@ -5,48 +5,62 @@ MicroModal.init();
 let menu = new Menu()
 let english = true
 let editing = null
-function local(string){
-    return{
-        "Monday": (english ? "Mon" : "Lun"),
-        "Tuesday": (english ? "Tue" : "Mar"),
-        "Wednesday": (english ? "Wed" : "Mer"),
-        "Thursday": (english ? "Thu" : "Gio"),
-        "Friday": (english ? "Fri" : "Ven"),
-        "Saturday":(english ? "Sat" : "Sab"),
-        "Sunday": (english ? "Sun" : "Dom"),
-        "Lunch": (english ? "Lunch" : "Pranzo"),
-        "Dinner": (english ? "Dinner" : "Cena"),
-        "Ingredients": (english ? "Ingredients" : "Ingredienti"),
-        "Generate": (english ? "Create Menu" : "Crea Menu")
-    }[string]
+
+function checkCurrentOnLoad(){
+    if(!menu.saved.clear){
+        populatePage(menu.current)
+    }
 }
+document.addEventListener('DOMContentLoaded',checkCurrentOnLoad);
 
 function generate(){
-    //menu.generateWeek()
-    menu.current.Monday.Lunch1.meal.item = menu.menu.mains.legume[0]
-    menu.current.Monday.Lunch2.meal.item = menu.menu.mains.legume[0]
-    menu.current.Monday.Dinner.meal.item = menu.menu.mains.eggs[0]
+    menu.generateWeek()
     populatePage(menu.current)
 }
 
-function language() {
-    english = !english
-    for(propertyName in menu.current){
-        document.getElementById(propertyName + '-title').innerText = local(propertyName)
+function saveCurrent(){
+    menu.saveCurrent()
+}
+function resetCurrent(){
+    menu.resetCurrent()
+    document.getElementById("ingredients").innerHTML = ""
+    for(day in menu.current){
+        document.getElementById(day + '-lunch1').innerText = ""
+        document.getElementById(day + '-seperator').innerText = ""
+        document.getElementById(day + '-lunch2').innerText = ""
+        if(day === "Sunday"){ continue; }
+        document.getElementById(day + '-dinner').innerText = ""
     }
-    let lunch = document.getElementsByClassName('lunch-title')
-    Array.prototype.forEach.call(lunch, function(el) { 
-        el.innerText = local("Lunch")
-    });
-    let dinner = document.getElementsByClassName('dinner-title')
-    Array.prototype.forEach.call(dinner, function(el) { 
-        el.innerText = local("Dinner")
-    });
-    document.getElementById("ingredient-title").innerText = local("Ingredients")
+}
+
+function translate(day){
+    switch(day) {
+        case "Monday": {
+            return "Lunedi"
+        }
+        case "Tuesday": {
+            return "Martedì"
+        }
+        case "Wednesday": {
+            return "Mercoledì"
+        }
+        case "Thursday": {
+            return "Giovedi"
+        }
+        case "Friday": {
+            return "Venerdì"
+        }
+        case "Saturday": {
+            return "Sabato"
+        }
+        case "Sunday": {
+            return "Domenica"
+        }
+    }
 }
 
 function openSettings(day){
-    document.getElementById("modal-title").innerText = local(day);
+    document.getElementById("modal-title").innerText = translate(day);
     document.getElementById("save-button").onclick = function () { saveSettings(day); };
 
     let properties = []
@@ -114,6 +128,7 @@ function addMeal(){
     if(meal.name){
         MicroModal.close('addmeal-modal')
         menu.addMeal(meal, main, category)
+        cleanAddMeal()
         showViewMeal()
     }
 }
@@ -214,7 +229,7 @@ function lock(day, meal, side){
 
 function populatePage(current){
     for(propertyName in menu.current){
-        document.getElementById("ingredients").innerHTML += `<div class="day-text">`+ propertyName +`</div>`
+        document.getElementById("ingredients").innerHTML += `<div class="day-text">`+ translate(propertyName) +`</div>`
         if(current[propertyName].Lunch1.meal.item){
             document.getElementById("ingredients").innerHTML += `<hr class="lunch-line"/><div class="lunch-title">Primo</div>`
             current[propertyName].Lunch1.meal.item.ingredients.forEach((ingredient) => {
