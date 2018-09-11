@@ -15,19 +15,35 @@ class Menu {
         return result;
     }
 
-    generateWeek(current) {
-        let checkArray = []
-        if(current){
-            this.current = current
-            //check locks and reset any unlocked ones
-        } else {
-            this.current = require('../data/current.json')
+    generateWeek() {
+        
+        for(day in this.defaults){
+            let catLunch1 = []
+            let catLunch2 = []
+            let catDinner = []
+            if(this.current[day].locked){
+
+            } else {
+                // build category arrays
+                for(cat in this.defaults[day]["Lunch1"]){
+                    if(this.defaults[day]["Lunch1"][cat]){
+                        catLunch1.push(cat)
+                    }
+                    if(this.defaults[day]["Lunch2"][cat]){
+                        catLunch2.push(cat)
+                    }
+                    if(this.defaults[day]["Dinner"][cat]){
+                        catDinner.push(cat)
+                    }
+                }
+
+                let indexL1 = Math.floor(Math.random() * catLunch1.length);
+                let indexL2 = Math.floor(Math.random() * catLunch2.length);
+                let indexD  = Math.floor(Math.random() * catDinner.length);
+
+                
+            }
         }
-        this.current["Monday"].Lunch1.meal.item = this.menu["mains"]["legume"]["pastaAndPeas"]
-        this.current["Monday"].Lunch2.meal.item = this.menu["mains"]["eggs"]["omlette"]
-        this.current["Monday"].Lunch2.sides.state = true
-        this.current["Monday"].Lunch2.sides.side1.item = {"name":"potate"}
-        this.current["Monday"].Lunch2.sides.side2.item = {"name":"beans"}
     }
 
     saveDefaults(){

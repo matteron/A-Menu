@@ -1,18 +1,20 @@
 {
   "name": "a-menu",
+  "productName": "A-Menu",
   "private": true,
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Menu Generation app for my Loving Mother",
   "main": "main.js",
   "scripts": {
     "test": "test",
-    "start": "electron ."
+    "start": "electron .",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=./icons/mac/icon.icns --prune=true --out=release-builds"
   },
   "author": "Mattia Schiano",
   "license": "ISC",
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^5.3.1",
-    "electron": "^2.0.8"
+    "electron": "^2.0.8",
+    "electron-packager": "^12.1.1"
   },
   "dependencies": {
     "micromodal": "^0.3.2"
