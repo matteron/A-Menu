@@ -1,0 +1,147 @@
+:root {
+	--bg: #f6f6f6;
+}
+
+html {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+	-webkit-box-sizing: inherit;
+	-moz-box-sizing: inherit;
+	box-sizing: inherit;
+}
+
+body {
+	margin: 0.5rem;
+	background-color: var(--bg);
+}
+
+main {
+	margin-top: 4rem;
+}
+
+.nav-bg {
+	background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+}
+.nav-link {
+	cursor: pointer;
+}
+
+#generateLink {
+	transition: border-color: 1s ease;
+}
+
+#generateLink:hover {
+	animation: gradientBG 5s ease infinite;
+	color: white;
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	border-color: transparent;
+	transition: border-color: 0.5s ease;
+}
+
+#days {
+	justify-content: center;
+}
+
+.cardShadow {
+	box-shadow: 0 6px 15px rgba(36,37,38,0.08);
+	transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.weekcard {
+	border-radius: 16px;
+	margin: 1rem;
+	width: 17rem;
+	border: 0;
+	
+}
+
+.cardShadow:hover {
+	box-shadow: 5px 12px 20px rgba(36,37,38,0.13);
+}
+
+.weekcard > .card-header {
+	color: white;
+	border: 0;
+	box-shadow: 0 1px 3px rgba(36,37,38,0.08);
+}
+
+.header-mon {
+	background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+}
+
+.header-tue {
+	background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+}
+
+.header-wed {
+	background-image: linear-gradient(60deg, #96deda 0%, #50c9c3 100%);
+}
+
+.header-thu {
+	background-image: linear-gradient(120deg, #fccb90 0%, #d57eeb 100%);
+}
+
+.header-fri {
+	background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);
+}
+
+.header-sat {
+	background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+}
+
+.header-sun {
+	background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+#categories {
+	justify-content: center;
+	margin-top: 10rem;
+}
+
+.card-header:hover > .editIcon {
+	display: block;
+}
+
+.editIcon {
+	display: none;
+	cursor: pointer;
+}
+
+.catItem:hover .editIcon {
+	display: block;
+}
+
+.header-addCat {
+	color: white;
+	background-image: linear-gradient(-120deg, #89f7fe 0%, #66a6ff 100%);
+}
+
+.btn-addCat {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	border: none;
+	color: white;
+}
+
+@keyframes gradientBG {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.btn-addCat:hover {
+	animation: gradientBG 5s ease infinite;
+	color: white;
+}
