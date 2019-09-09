@@ -22,7 +22,6 @@ module.exports = class Days {
 		this.weekdays.forEach((weekcard) => {
 			let day = weekcard.weekday;
 			let settings = db.daySettings[day];
-			console.log(settings);
 		})
 	}
 	
