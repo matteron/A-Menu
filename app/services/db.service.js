@@ -5,11 +5,12 @@ module.exports = class DB {
 	constructor(dayList) {
 		this.store = new Store();
 		this.categories = [];
-		this.recipes = [];
+		this.dishes = [];
 		this.daySettings = {};
 
 		this.pullCategories();
 		this.pullDays();
+		this.pullDishes();
 	}
 
 	pullCategories() {
@@ -62,4 +63,29 @@ module.exports = class DB {
 		this.store.set('daySettings', this.daySettings);
 	}
 
+	pullDishes() {
+		this.dishes = this.store.get('dishes');
+		if(!this.dishes) {
+			this.dishes = [];
+		}
+	}
+
+	saveDishes() {
+		this.store.set('dishes', this.dishes);
+	}
+
+	addDish(dish) {
+		this.dishes.push(dish);
+		this.saveDishes();
+	}
+
+	editDish(index, dish) {
+		this.dishes[index] = dish;
+		this.saveDishes();
+	}
+
+	removeDish(index) {
+		this.dishes.splice(index, 1);
+		this.saveDishes();
+	}
 }

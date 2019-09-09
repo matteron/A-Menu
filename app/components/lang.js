@@ -11,19 +11,29 @@ const en = {
 		dinner: 'Dinner',
 		first: 'First',
 		second: 'Second',
+		side: 'Side',
 		sides: 'Sides',
 		categories: 'Categories',
 		newCategory: 'New Category',
 		add: 'Add',
 		name: 'Name',
 		save: 'Save',
-		cancel: 'Cancel'
+		delete: 'Delete',
+		cancel: 'Cancel',
+		newDish: 'New Dish',
+		numSides: 'Number of Sides',
+		edit: 'Edit'
 	},
 	nav: {
 		home: 'Home',
 		dishes: 'Manage Dishes',
 		categories: 'Manage Categories',
 		generate: 'Generate'
+	},
+	advice: {
+		addCat: 'Add a category to start!',
+		selectCat: 'Please Select a Category',
+		addDish: 'Add a dish to start!'
 	}
 };
 
@@ -40,19 +50,29 @@ const it ={
 		dinner: 'Cena',
 		first: 'Primo',
 		second: 'Secondo',
+		side: 'Contorno',
 		sides: 'Contorni',
 		categories: 'Categorie',
-		newCategory: 'Nuova Categoria',
+		newCategory: 'Categoria Nuova',
 		add: 'Aggiungi',
 		name: 'Nome',
 		save: 'Salva',
-		cancel: 'Cancela'
+		delete: 'Elimina',
+		cancel: 'Cancela',
+		newDish: 'Piatto Nuovo',
+		numSides: 'Quanti Contorni',
+		edit: 'Modifica'
 	},
 	nav: {
-		home: 'Casa',
-		dishes: 'Maneggiare Piati',
-		categories: 'Maneggiare Categorie',
-		generate: 'Generare'
+		home: 'Pagina Iniziale',
+		dishes: 'Configura i Piatti',
+		categories: 'Configura Categorie',
+		generate: 'Genera'
+	},
+	advice: {
+		addCat: 'Aggiungi una categoria per iniziare!',
+		selectCat: 'Seleziona una Categoria',
+		addDish: 'Aggiungi un piatto per iniziare!'
 	}
 };
 

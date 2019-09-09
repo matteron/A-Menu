@@ -17,10 +17,10 @@ module.exports = class CatManager {
 					<div class="card cardShadow" style="width: 18rem;">
 						<h5 class="card-header header-addCat">${lang.labels.newCategory}</h5>
 				  		<div class="card-body">
-					    	<div>
-					    		<input type="text" class="form-control mb-2" placeholder="${lang.labels.name}" id="addinput">
-					    		<button class="btn btn-addCat" onclick="_this.add()">${lang.labels.add}</button>
-					    	</div>
+					    	<div class="form-group">
+					    		<input type="text" class="form-control" placeholder="${lang.labels.name}" id="addinput">
+				    		</div>
+				    		<button class="btn btn-addCat" onclick="_this.add()">${lang.labels.add}</button>	
 				  		</div>
 					</div>
 				</div>
@@ -58,7 +58,6 @@ module.exports = class CatManager {
 	}
 
 	delete(index) {
-		
 		db.removeCategory(index);
 		this.render();
 	}
@@ -71,17 +70,16 @@ module.exports = class CatManager {
 			db.categories.forEach((s, i) => {
 				this.categories += `
 					<li class="list-group-item catItem d-flex justify-content-between align-items-center" id="cat_${i}">
-						<span class="d-flex">
+						<span class="d-flex align-items-center">
 							${s}
-							<span class="editIcon ml-2" onclick="_this.edit(${i})">✏️</span>
+							<small class="editIcon ml-3" onclick="_this.edit(${i})">${lang.labels.edit}</small>
 						</span>
-						<span class="editIcon ml-2" onclick="_this.delete(${i})">❌</span>
+						<span class="editIcon" onclick="_this.delete(${i})">&times;</span>
 					</li>
 				`
 			});
 		} else {
-			this.categories = `
-				<li class="list-group-item">Add a category to start!</li>`;
+			this.categories = `<li class="list-group-item">${lang.advice.addCat}</li>`;
 		}
 		main.append(this.html());
 	}

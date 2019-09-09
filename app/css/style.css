@@ -145,3 +145,13 @@ main {
 	animation: gradientBG 5s ease infinite;
 	color: white;
 }
+
+.header-addDish {
+	color: white;
+	background-image: linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #cf6cc9 33%, #ee609c 66%, #ee609c 100%);
+}
+
+
+.dishItem:hover .editIcon {
+	display: block;
+}

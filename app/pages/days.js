@@ -9,16 +9,21 @@ module.exports = class Days {
 		this.dayCards = '';
 	}
 
-	editDay(day){
-		
-	}
-
 	html() {
 		return `
 			<div class="container-fluid row" id="days">
 				${this.dayCards}
 			</div>
 		`;
+	}
+
+	generate() {
+		this.remainingDishes = db.dishes;
+		this.weekdays.forEach((weekcard) => {
+			let day = weekcard.weekday;
+			let settings = db.daySettings[day];
+			console.log(settings);
+		})
 	}
 	
 
