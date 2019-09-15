@@ -18,11 +18,40 @@ module.exports = class Days {
 	}
 
 	generate() {
-		this.remainingDishes = db.dishes;
+		let remainingDishes = db.dishes;
+		let day = '';
+		let settings = {};
+		let filteredDishes = [];
+		let meal = {};
 		this.weekdays.forEach((weekcard) => {
-			let day = weekcard.weekday;
-			let settings = db.daySettings[day];
-		})
+			day = weekcard.weekday;
+			settings = db.daySettings[day];
+			meal = this.createMeal(remainingDishes, settings);
+		});
+	}
+
+	createMeal(dishes, settings) {
+		let meal = {
+			lunch: {
+				first: '',
+				second: '',
+				sides: ''
+			},
+			dinner: {
+				first: '',
+				second: '',
+				sides: ''
+			}
+		};
+
+		let lunchDishes = dishes.filter(
+			(d) => settings.lunch.categories[d.category]
+		);
+		let lunchFirsts = lunchDishes.filter(d => d.type = 'first');
+		let lunchSeconds = lunchDishes.filter(d => d.type = 'second');
+
+
+		return meal;
 	}
 	
 

@@ -49,6 +49,7 @@ module.exports = class WeekCard {
 	}
 
 	render() {
+		
 		return this.html();
 	}
 }

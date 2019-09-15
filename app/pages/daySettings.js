@@ -137,7 +137,8 @@ module.exports = class DaySettings {
 		});
 
 		db.categories.forEach((_, i) => {
-			db.daySettings[this.day].categories[i] = $('#cat_' + i).prop('checked');
+			db.daySettings[this.day].lunch.categories[i] = $('#cat_l_' + i).prop('checked');
+			db.daySettings[this.day].dinner.categories[i] = $('#cat_d_' + i).prop('checked');
 		});
 
 		db.saveDays();
@@ -153,15 +154,29 @@ module.exports = class DaySettings {
 		let htmlCats = '';
 		db.categories.forEach((cat, i) => {
 			htmlCats += `
-				<li class="list-group-item">
-					<input
-						class="form-check-input"
-						type="checkbox"
-						${db.daySettings[this.day].categories[i] ? 'checked' : ''}
-						id="cat_${i}">
-					<label class="form-check-label" for="cat_${i}">
-						${cat}
-					</label>
+				<li class="list-group-item d-flex justify-content-between">
+					<div class="form-group" style="width: 25%">
+						<input
+							class="form-check-input"
+							type="checkbox"
+							${db.daySettings[this.day].lunch.categories[i] ? 'checked' : ''}
+							id="cat_l_${i}"
+						>
+						<label class="form-check-label" for="cat_l_${i}">
+							${cat}
+						</label>
+					</div>
+					<div class="form-group" style="width: 25%">
+						<input
+							class="form-check-input"
+							type="checkbox"
+							${db.daySettings[this.day].dinner.categories[i] ? 'checked' : ''}
+							id="cat_d_${i}"
+						>
+						<label class="form-check-label" for="cat_d_${i}">
+							${cat}
+						</label>
+					</div>
 				</li>
 			`;
 		});

@@ -46,13 +46,13 @@ module.exports = class DB {
 			let emptyMeal = {
 				first: false,
 				second: false,
-				sides: false
+				sides: false,
+				categories: []
 			}
 			dayList.forEach((day) => {
 				this.daySettings[day] = {
 					lunch: emptyMeal,
 					dinner: emptyMeal,
-					categories: []
 				}
 			});
 			this.saveDays();

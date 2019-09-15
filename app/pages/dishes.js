@@ -21,12 +21,6 @@ module.exports = class Dishes {
 					    		<input type="text" class="form-control" placeholder="${lang.labels.name}" id="nameBox">
 				    		</div>
 				    		<div class="form-group">
-				    			<select class="custom-select" id="categorySelect">
-									<option selected value="-1">${lang.advice.selectCat}</option>
-									${this.categories}
-								</select>
-				    		</div>
-				    		<div class="form-group">
 				    			<div class="form-check">
 									<input
 										class="form-check-input"
@@ -65,7 +59,13 @@ module.exports = class Dishes {
 									</label>
 								</div>
 				    		</div>
-				    		<div class="form-group input-group">
+				    		<div class="form-group">
+				    			<select class="custom-select" id="categorySelect">
+									<option selected value="-1">${lang.advice.selectCat}</option>
+									${this.categories}
+								</select>
+				    		</div>
+				    		<div class="form-group input-group" id="inputSideQty">
 								<div class="input-group-prepend">
 									<span class="input-group-text">${lang.labels.numSides}</span>
 								</div>
@@ -90,12 +90,12 @@ module.exports = class Dishes {
 	add() {
 		let name = $('#nameBox').val();
 		let cat = $('#categorySelect').val();
-		if(name && cat > -1) {
-			let type = $('input:radio[name="newPlateType"]:checked').val();
+		let type = $('input:radio[name="newPlateType"]:checked').val();
+		if((name && cat > -1) || (name && type === 'side')) {
 			let numSides = type === 'side' ? 0 : $('#numSides').val();
 			db.addDish({
 				name: name,
-				category: cat,
+				category: type === 'side' ? -1 : cat,
 				type: type,
 				numSides: numSides
 			});
@@ -121,15 +121,6 @@ module.exports = class Dishes {
 	    			id="editNameBox"
 	    			value="${dish.name}"
 	    		>
-    		</div>
-    		<div class="form-group">
-    			<select
-    				class="custom-select"
-    				id="editCategorySelect"
-    			>
-					<option value="-1">${lang.advice.selectCat}</option>
-					${this.categories}
-				</select>
     		</div>
     		<div class="form-group">
     			<div class="form-check">
@@ -172,7 +163,19 @@ module.exports = class Dishes {
 					</label>
 				</div>
     		</div>
-    		<div class="form-group input-group">
+    		<div class="form-group">
+    			<select
+    				class="custom-select"
+    				id="editCategorySelect"
+    			>
+					<option value="-1">${lang.advice.selectCat}</option>
+					${this.categories}
+				</select>
+    		</div>
+    		<div 
+    			class="form-group input-group"
+    			id="editInputSideQty"
+    		>
 				<div class="input-group-prepend">
 					<span class="input-group-text">${lang.labels.numSides}</span>
 				</div>
@@ -194,17 +197,31 @@ module.exports = class Dishes {
 		`;
 		selector.append(html);
 		$('#editCategorySelect').val(dish.category);
+		let type = $('input:radio[name="editPlateType"]:checked').val();
+		if(type === 'side') {
+			$('#editInputSideQty').hide();
+			$('#editCategorySelect').hide();
+		}
+		$('input:radio[name="editPlateType"]').change((e) => {
+			if(e.target.value === 'side') {
+				$('#editInputSideQty').hide();
+				$('#editCategorySelect').hide();
+			} else {
+				$('#editInputSideQty').show();
+				$('#editCategorySelect').show();
+			}
+		});
 	}
 
 	save(index) {
 		let dish = db.dishes[index];
 		let name = $('#editNameBox').val();
 		let cat = $('#editCategorySelect').val();
-		if(name && cat > -1) {
-			let type = $('input:radio[name="editPlateType"]:checked').val();
+		let type = $('input:radio[name="editPlateType"]:checked').val();
+		if((name && cat > -1) || (name && type === 'side')) {
 			let numSides = type === 'side' ? 0 : $('#editNumSides').val();
 			dish.name = name;
-			dish.category = cat;
+			dish.category = type === 'side' ? -1 : cat;
 			dish.type = type;
 			dish.numSides = numSides;
 			db.editDish(index, dish);
@@ -253,7 +270,6 @@ module.exports = class Dishes {
 									</span>
 								`
 							}
-							
 						</div>
 					</div>
 				`;
@@ -267,9 +283,11 @@ module.exports = class Dishes {
 		// Check to hide num sides box
 		$('input:radio[name="newPlateType"]').change((e) => {
 			if(e.target.value === 'side') {
-				$('#numSides').hide();
+				$('#inputSideQty').hide();
+				$('#categorySelect').hide();
 			} else {
-				$('#numSides').show();
+				$('#inputSideQty').show();
+				$('#categorySelect').show();
 			}
 		});
 	}
