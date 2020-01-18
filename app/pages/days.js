@@ -4,7 +4,7 @@ module.exports = class Days {
 	constructor(db, dayList, lang) {
 		this.weekdays = [];
 		dayList.forEach((day) => {
-			this.weekdays.push(new weekcard(day, lang));
+			this.weekdays.push(new weekcard(day, lang, db.daySettings[day]));
 		});
 		this.dayCards = '';
 	}
@@ -24,32 +24,31 @@ module.exports = class Days {
 		let filteredDishes = [];
 		let meal = {};
 		this.weekdays.forEach((weekcard) => {
-			day = weekcard.weekday;
-			settings = db.daySettings[day];
-			meal = this.createMeal(remainingDishes, settings);
+			this.createMeals(weekcard, remainingDishes);
 		});
 	}
 
-	createMeal(dishes, settings) {
-		let meal = {
-			lunch: {
-				first: '',
-				second: '',
-				sides: ''
-			},
-			dinner: {
-				first: '',
-				second: '',
-				sides: ''
-			}
-		};
-
+	createMeals(dishes, settings) {
 		let lunchDishes = dishes.filter(
 			(d) => settings.lunch.categories[d.category]
 		);
-		let lunchFirsts = lunchDishes.filter(d => d.type = 'first');
-		let lunchSeconds = lunchDishes.filter(d => d.type = 'second');
 
+		let dinnerDishes = dishes.filter(
+			(d) => settings.dinner.categories[d.category]
+		);
+
+		const meal = {
+			lunch: {
+				first: lunchDishes.filter(d => d.type = 'first'),
+				second: lunchDishes.filter(d => d.type = 'second'),
+				sides: lunchDishes.filter(d => d.type = 'sides'),
+			},
+			dinner: {
+				first: dinnerDishes.filter(d => d.type = 'first'),
+				second: dinnerDishes.filter(d => d.type = 'second'),
+				sides: dinnerDishes.filter(d => d.type = 'sides'),
+			}
+		};
 
 		return meal;
 	}

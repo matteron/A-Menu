@@ -1,8 +1,8 @@
 module.exports = class WeekCard {
 
-	constructor(weekday, lang, meals) {
+	constructor(weekday, lang, daySettings) {
 		this.weekday = weekday;
-		this.meals = meals ? meals : {
+		this.meals = {
 			lunch: {
 				first: '',
 				second: '',
@@ -14,6 +14,7 @@ module.exports = class WeekCard {
 				sides: ''
 			}
 		};
+		this.daySettings = daySettings;
 		this.lunchHTML = '';
 		this.dinnerHTML = '';
 	}
@@ -49,7 +50,6 @@ module.exports = class WeekCard {
 	}
 
 	render() {
-		
 		return this.html();
 	}
 }
