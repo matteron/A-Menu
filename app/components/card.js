@@ -19,6 +19,30 @@ module.exports = class WeekCard {
 		this.dinnerHTML = '';
 	}
 
+	createMeals(dishes) {
+		const times = [
+			'lunch',
+			'dinner'
+		];
+
+		const groups = [
+			'first',
+			'second',
+			'sides'
+		];
+
+		let filtered = times.reduce(
+			(acc, cur) => acc[cur] = dishes.filter((d) => settings[cur].categories[d.category]), {}
+		);
+
+		times.forEach(t => {
+			groups.forEach(g => {
+				this.meals[t][g] = filtered[t].filter(d => d.type == g);
+			})
+		});
+		console.log(this.meals);
+	}
+
 	html() {
 		return `
 			<div class="card weekcard cardShadow">

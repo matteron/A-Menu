@@ -24,7 +24,7 @@ module.exports = class Days {
 		let filteredDishes = [];
 		let meal = {};
 		this.weekdays.forEach((weekcard) => {
-			this.createMeals(weekcard, remainingDishes);
+			weekcard.createMeals(remainingDishes);
 		});
 	}
 
