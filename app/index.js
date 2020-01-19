@@ -2,9 +2,11 @@ const DBService = require('./services/db.service.js');
 const Days = require('./pages/days.js');
 const CatManager = require('./pages/categories.js');
 const dayList = require('./components/dayList.js');
-const lang = require('./components/lang.js')('en');
 const DaySettings = require('./pages/daySettings.js');
 const Dishes = require('./pages/dishes.js');
+require('./services/initHaipa.js')();
+
+global.lang = require('./components/lang.js')('en');
 
 var db = new DBService(dayList);
 

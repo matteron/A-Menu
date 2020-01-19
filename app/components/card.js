@@ -1,3 +1,7 @@
+const haipa = require('haipa')(false);
+const { div, h5, small, ul } = haipa.tags;
+const { classes, style } = haipa.attr;
+
 module.exports = class WeekCard {
 
 	constructor(weekday, lang, daySettings) {
@@ -15,8 +19,6 @@ module.exports = class WeekCard {
 			}
 		};
 		this.daySettings = daySettings;
-		this.lunchHTML = '';
-		this.dinnerHTML = '';
 	}
 
 	createMeals(dishes) {
@@ -32,7 +34,10 @@ module.exports = class WeekCard {
 		];
 
 		let filtered = times.reduce(
-			(acc, cur) => acc[cur] = dishes.filter((d) => settings[cur].categories[d.category]), {}
+			(acc, cur) => {
+				acc[cur] = dishes.filter((d) => this.daySettings[cur].categories[d.category])
+				return acc;
+			}, {}
 		);
 
 		times.forEach(t => {
@@ -40,37 +45,43 @@ module.exports = class WeekCard {
 				this.meals[t][g] = filtered[t].filter(d => d.type == g);
 			})
 		});
-		console.log(this.meals);
+	}
+
+	mealHtml(meal) {
+		
+	}
+
+	mealHTML() {
+		return '';
+	}
+
+	lunchHTML() {
+		return '';
+	}
+
+	dinnerHTML() {
+		return '';
 	}
 
 	html() {
-		return `
-			<div class="card weekcard cardShadow">
-				<div
-					class="d-flex justify-content-between align-items-center card-header header-${this.weekday}"
-					onclick="editDay('${this.weekday}')"
-					style="cursor: pointer;"
-				>
-					<h5 class="mb-0">
-						${lang[this.weekday]}
-					</h5>
-					<small class="editIcon">${lang.labels.edit}</small>
-				</div>
-				<div class="card-body">
-					<h5 class="card-title">${lang.labels.lunch}</h5>
-					<p class="card-text">
-						${this.lunchHTML}
-					</p>
-				</div>
-				<div class="card-body">
-					<h5 class="card-title">${lang.labels.dinner}</h5>
-					<p class="card-text">
-						${this.dinnerHTML}
-					</p>
-
-				</div>
-			</div>
-		`;
+		return div([classes`card weekcard cardShadow`], [
+			div([
+				classes(`d-flex justify-content-between align-items-center card-header header-${this.weekday}`),
+				style`cursor: pointer`,
+				`onclick="editDay('${this.weekday}')"`
+			], [
+				h5([classes`mb-0`], [ lang[this.weekday] ]),
+				small([classes`editIcon`], [lang.labels.edit])
+			]),
+			div([classes`card-body`], [
+				h5([classes`card-title`], [lang.labels.lunch]),
+				ul([classes`card-text`], [this.lunchHTML()])
+			]),
+			div([classes`card-body`], [
+				h5([classes`card-title`], [lang.labels.dinner]),
+				ul([classes`card-text`], [this.dinnerHTML()])
+			]),
+		]);
 	}
 
 	render() {
